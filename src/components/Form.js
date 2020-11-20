@@ -54,8 +54,6 @@ const Form = ({ makeAppointment }) => {
 
   return (
     <Fragment>
-      <h2>Crear cita</h2>
-      <hr/>
       { error ? <Alert/> : null }
       <form
         onSubmit={submitAppointment}
