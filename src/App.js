@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 
-import healthLogo from './assets/health-report.svg';
+import Navbar from './components/Navbar';
+import Form from './components/Form';
 
-const App = () => (
-  <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-      <img src={healthLogo} width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"/>
-      Administrador de pacientes
-    </a>
-  </nav>
-);
+const App = () => {
+
+  const [mainAppointments, setMain] = useState([]);
+
+  const makeAppointment = appointment => setMain([ ...mainAppointments, appointment ]);
+
+  return (
+  <Fragment>
+    <Navbar/>
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <Form
+            makeAppointment={makeAppointment}
+          />
+        </div>
+        <div className="col">2</div>
+      </div>
+    </div>
+  </Fragment>
+  );
+};
 
 export default App;
